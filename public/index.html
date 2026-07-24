@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Araujo Farms — Fazenda Nova Campinas · Tesouro, Mato Grosso</title>
+<meta name="description" content="Araujo Farms (Fazenda Nova Campinas) — 1,340 hectares of cattle country and preserved Cerrado on the Rio Garças, in Tesouro, Mato Grosso, Brazil." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --forest: #21402c;
+    --forest-deep: #172d1f;
+    --moss: #3a5a3f;
+    --cream: #f6f1e6;
+    --cream-2: #efe8d8;
+    --gold: #b98a3e;
+    --gold-soft: #d8bd86;
+    --ink: #23261f;
+    --ink-soft: #4c5045;
+    --line: rgba(35,38,31,0.14);
+    --maxw: 1200px;
+    --shadow: 0 18px 50px -24px rgba(23,45,31,0.45);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: var(--ink);
+    background: var(--cream);
+    font-weight: 400;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, .display { font-family: 'Fraunces', Georgia, serif; font-weight: 500; line-height: 1.1; }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; }
+
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
+  .eyebrow {
+    font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase;
+    font-weight: 600; color: var(--gold); margin: 0 0 14px;
+  }
+  .section { padding: 96px 0; }
+  .section-sm { padding: 64px 0; }
+  .lede { font-size: 1.18rem; color: var(--ink-soft); max-width: 60ch; }
+
+  /* NAV */
+  header.nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 28px;
+    transition: background .35s ease, box-shadow .35s ease, padding .35s ease;
+  }
+  header.nav.scrolled {
+    background: rgba(246,241,230,0.92);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 1px 0 var(--line);
+    padding: 12px 28px;
+  }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--cream); }
+  header.nav.scrolled .brand { color: var(--forest); }
+  .brand .mark {
+    width: 38px; height: 38px; border-radius: 50%;
+    border: 1.5px solid currentColor; display: grid; place-items: center;
+    font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.05rem;
+  }
+  .brand .brand-name { font-family: 'Fraunces', serif; font-size: 1.15rem; font-weight: 500; letter-spacing: .01em; line-height: 1; }
+  .brand .brand-sub { font-size: .62rem; letter-spacing: .2em; text-transform: uppercase; opacity: .8; }
+  .nav-right { display: flex; align-items: center; gap: 26px; }
+  .nav-links { display: flex; gap: 26px; }
+  .nav-links a {
+    color: var(--cream); text-decoration: none; font-size: .82rem; letter-spacing: .04em;
+    font-weight: 500; opacity: .92; transition: opacity .2s;
+  }
+  .nav-links a:hover { opacity: 1; }
+  header.nav.scrolled .nav-links a { color: var(--forest); }
+
+  .lang {
+    display: inline-flex; border: 1px solid rgba(246,241,230,0.5); border-radius: 999px; overflow: hidden;
+    font-size: .72rem; font-weight: 600; letter-spacing: .08em;
+  }
+  header.nav.scrolled .lang { border-color: var(--line); }
+  .lang button {
+    background: transparent; border: 0; color: var(--cream); padding: 6px 12px; cursor: pointer;
+    font: inherit; letter-spacing: inherit; transition: background .2s, color .2s;
+  }
+  header.nav.scrolled .lang button { color: var(--forest); }
+  .lang button.active { background: var(--gold); color: #fff; }
+  header.nav.scrolled .lang button.active { color: #fff; }
+
+  /* HERO */
+  .hero {
+    position: relative; min-height: 100vh; display: flex; align-items: flex-end;
+    color: var(--cream); overflow: hidden;
+  }
+  .hero-bg { position: absolute; inset: 0; background: #2a3a2c; }
+  .hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+  .hero-bg::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(23,45,31,0.55) 0%, rgba(23,45,31,0.15) 35%, rgba(23,45,31,0.75) 100%);
+  }
+  .hero-inner { position: relative; z-index: 2; padding-bottom: 8vh; padding-top: 120px; }
+  .hero h1 { font-size: clamp(2.8rem, 7vw, 5.6rem); margin: 0 0 18px; letter-spacing: -0.01em; }
+  .hero h1 em { font-style: italic; color: var(--gold-soft); }
+  .hero .hero-sub { font-size: clamp(1rem, 2vw, 1.3rem); max-width: 44ch; opacity: .95; margin: 0 0 30px; font-weight: 300; }
+  .hero .loc {
+    display: inline-flex; align-items: center; gap: 9px; font-size: .78rem; letter-spacing: .18em;
+    text-transform: uppercase; font-weight: 600; margin-bottom: 22px; color: var(--gold-soft);
+  }
+  .hero .loc::before { content: ""; width: 26px; height: 1px; background: var(--gold-soft); }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px; text-decoration: none;
+    padding: 14px 26px; border-radius: 999px; font-size: .85rem; font-weight: 600; letter-spacing: .03em;
+    transition: transform .2s ease, background .2s ease, color .2s ease; cursor: pointer; border: 0;
+  }
+  .btn-gold { background: var(--gold); color: #fff; }
+  .btn-gold:hover { transform: translateY(-2px); background: #a9792f; }
+  .btn-ghost { background: transparent; border: 1.5px solid rgba(246,241,230,0.55); color: var(--cream); }
+  .btn-ghost:hover { background: rgba(246,241,230,0.12); }
+  .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
+
+  /* STATS BAR */
+  .stats {
+    background: var(--forest-deep); color: var(--cream);
+    display: grid; grid-template-columns: repeat(4, 1fr);
+  }
+  .stats .stat { padding: 34px 26px; border-right: 1px solid rgba(246,241,230,0.12); }
+  .stats .stat:last-child { border-right: 0; }
+  .stats .num { font-family: 'Fraunces', serif; font-size: 2.1rem; color: var(--gold-soft); line-height: 1; }
+  .stats .lab { font-size: .74rem; letter-spacing: .12em; text-transform: uppercase; opacity: .8; margin-top: 8px; }
+
+  /* GENERIC SPLIT */
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .split.reverse .split-media { order: 2; }
+  h2.section-title { font-size: clamp(1.9rem, 4vw, 2.9rem); margin: 0 0 22px; color: var(--forest); }
+  .prose p { margin: 0 0 18px; color: var(--ink-soft); }
+  .prose p:last-child { margin-bottom: 0; }
+  .media-frame { border-radius: 6px; overflow: hidden; box-shadow: var(--shadow); }
+  .media-frame img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4/3; }
+
+  .band-forest { background: var(--forest); color: var(--cream); }
+  .band-forest h2.section-title { color: #fff; }
+  .band-forest .prose p { color: rgba(246,241,230,0.82); }
+  .band-forest .eyebrow { color: var(--gold-soft); }
+  .band-cream2 { background: var(--cream-2); }
+
+  /* FEATURE LIST */
+  .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 12px; }
+  .feature {
+    background: rgba(255,255,255,0.6); border: 1px solid var(--line); border-radius: 8px; padding: 28px;
+  }
+  .band-forest .feature { background: rgba(255,255,255,0.05); border-color: rgba(246,241,230,0.16); }
+  .feature h3 { font-size: 1.15rem; margin: 0 0 8px; color: var(--forest); }
+  .band-forest .feature h3 { color: #fff; }
+  .feature p { margin: 0; font-size: .94rem; color: var(--ink-soft); }
+  .band-forest .feature p { color: rgba(246,241,230,0.78); }
+  .feature .ic { font-size: 1.4rem; margin-bottom: 12px; display: block; }
+
+  /* PEOPLE */
+  .people-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 34px; margin-top: 20px; }
+  .person {
+    background: #fff; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; box-shadow: var(--shadow);
+  }
+  .person .avatar {
+    aspect-ratio: 1/1; background: linear-gradient(150deg, var(--moss), var(--forest-deep));
+    display: grid; place-items: center; color: var(--gold-soft); font-family: 'Fraunces', serif; font-size: 2.6rem;
+    position: relative;
+  }
+  .person .avatar span.badge {
+    position: absolute; bottom: 10px; right: 10px; font-size: .58rem; letter-spacing: .12em; text-transform: uppercase;
+    background: rgba(0,0,0,.35); color: var(--cream); padding: 4px 8px; border-radius: 4px; font-family: 'Inter', sans-serif;
+  }
+  .person .body { padding: 22px 24px 26px; }
+  .person .body h3 { font-size: 1.25rem; margin: 0 0 3px; color: var(--forest); }
+  .person .role { font-size: .74rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 12px; }
+  .person .body p { margin: 0; font-size: .93rem; color: var(--ink-soft); }
+
+  .note {
+    margin-top: 30px; font-size: .82rem; color: var(--ink-soft); background: rgba(185,138,62,.09);
+    border: 1px dashed var(--gold); border-radius: 8px; padding: 14px 18px;
+  }
+
+  /* GALLERY */
+  .gallery { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 200px; gap: 12px; }
+  .gallery figure { margin: 0; overflow: hidden; border-radius: 4px; position: relative; }
+  .gallery img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
+  .gallery figure:hover img { transform: scale(1.06); }
+  .gallery figure figcaption {
+    position: absolute; left: 0; right: 0; bottom: 0; padding: 22px 14px 10px; color: #fff;
+    font-size: .78rem; letter-spacing: .02em; background: linear-gradient(transparent, rgba(0,0,0,.6));
+    opacity: 0; transition: opacity .3s;
+  }
+  .gallery figure:hover figcaption { opacity: 1; }
+  .g-wide { grid-column: span 2; }
+  .g-tall { grid-row: span 2; }
+
+  /* VIDEO */
+  .video-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+  .video-grid video { width: 100%; border-radius: 8px; box-shadow: var(--shadow); background: #000; display: block; }
+  .video-cap { font-size: .84rem; color: rgba(246,241,230,0.8); margin-top: 10px; }
+
+  /* LOCATION */
+  .loc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: stretch; }
+  .distance-list { list-style: none; margin: 22px 0 0; padding: 0; }
+  .distance-list li {
+    display: flex; justify-content: space-between; align-items: baseline; gap: 16px;
+    padding: 14px 0; border-bottom: 1px solid var(--line);
+  }
+  .distance-list li .place { font-weight: 500; color: var(--forest); }
+  .distance-list li .dist { font-family: 'Fraunces', serif; color: var(--gold); font-size: 1.1rem; white-space: nowrap; }
+  .map-frame { border-radius: 10px; overflow: hidden; box-shadow: var(--shadow); min-height: 360px; border: 1px solid var(--line); }
+  .map-frame iframe { width: 100%; height: 100%; min-height: 360px; border: 0; display: block; }
+
+  /* CONTACT / FOOTER */
+  footer.site {
+    background: var(--forest-deep); color: var(--cream); padding: 80px 0 40px;
+  }
+  .foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 44px; }
+  footer.site h3 { color: #fff; font-size: 1.5rem; margin: 0 0 14px; }
+  footer.site p { color: rgba(246,241,230,0.75); margin: 0 0 10px; font-size: .95rem; }
+  footer.site .fcol h4 { font-size: .74rem; letter-spacing: .16em; text-transform: uppercase; color: var(--gold-soft); margin: 0 0 16px; }
+  footer.site a { color: rgba(246,241,230,0.85); text-decoration: none; }
+  footer.site a:hover { color: #fff; }
+  .foot-contact li { list-style: none; margin: 0 0 12px; }
+  .foot-contact { padding: 0; margin: 0; }
+  .foot-bottom {
+    margin-top: 56px; padding-top: 22px; border-top: 1px solid rgba(246,241,230,0.14);
+    display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+    font-size: .78rem; color: rgba(246,241,230,0.6);
+  }
+
+  .js .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+  .js .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .js .reveal { opacity: 1; transform: none; transition: none; }
+  }
+
+  /* Responsive */
+  @media (max-width: 960px) {
+    .nav-links { display: none; }
+    .split, .loc-grid { grid-template-columns: 1fr; gap: 34px; }
+    .split.reverse .split-media { order: 0; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .stats .stat:nth-child(2) { border-right: 0; }
+    .feature-grid, .people-grid { grid-template-columns: 1fr; }
+    .video-grid { grid-template-columns: 1fr; }
+    .foot-grid { grid-template-columns: 1fr; gap: 30px; }
+    .gallery { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 160px; }
+    .g-wide { grid-column: span 2; }
+  }
+  @media (max-width: 520px) {
+    .section { padding: 66px 0; }
+    .wrap { padding: 0 20px; }
+    .stats { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js');</script>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <a class="brand" href="#top">
+    <span class="mark">A</span>
+    <span>
+      <span class="brand-name">Araujo Farms</span><br />
+      <span class="brand-sub" data-i18n="brand.sub">Fazenda Nova Campinas</span>
+    </span>
+  </a>
+  <div class="nav-right">
+    <nav class="nav-links">
+      <a href="#story" data-i18n="nav.story">Our Story</a>
+      <a href="#cattle" data-i18n="nav.cattle">Cattle</a>
+      <a href="#land" data-i18n="nav.land">The Land</a>
+      <a href="#river" data-i18n="nav.river">The River</a>
+      <a href="#location" data-i18n="nav.location">Location</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Language">
+      <button data-lang="en" class="active" onclick="setLang('en')">EN</button>
+      <button data-lang="pt" onclick="setLang('pt')">PT</button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg"><img src="/media/photos/hero.jpg" alt="Open pasture road at golden hour on Araujo Farms" /></div>
+  <div class="wrap hero-inner">
+    <span class="loc" data-i18n="hero.loc">Tesouro · Mato Grosso · Brazil</span>
+    <h1 data-i18n-html="hero.title">Land, cattle &amp; <em>Cerrado</em>,<br />stewarded with care.</h1>
+    <p class="hero-sub" data-i18n="hero.sub">1,340 hectares along the Rio Garças — productive pasture, fertile soils, and over a thousand hectares of preserved native bush.</p>
+    <div class="hero-cta">
+      <a class="btn btn-gold" href="#story" data-i18n="hero.cta1">Discover the farm</a>
+      <a class="btn btn-ghost" href="#contact" data-i18n="hero.cta2">Get in touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats" id="stats">
+  <div class="stat"><div class="num">1,340</div><div class="lab" data-i18n="stat.ha">hectares total</div></div>
+  <div class="stat"><div class="num">1,047</div><div class="lab" data-i18n="stat.preserved">ha preserved Cerrado</div></div>
+  <div class="stat"><div class="num">4 km</div><div class="lab" data-i18n="stat.river">Rio Garças frontage</div></div>
+  <div class="stat"><div class="num">100%</div><div class="lab" data-i18n="stat.mech">mechanizable land</div></div>
+</div>
+
+<!-- OVERVIEW / STORY -->
+<section class="section" id="story">
+  <div class="wrap split reverse reveal">
+    <div class="split-media media-frame"><img src="/media/photos/homestead-pasture.jpg" alt="The homestead set among pasture and mango trees" /></div>
+    <div>
+      <p class="eyebrow" data-i18n="story.eyebrow">Our Story</p>
+      <h2 class="section-title" data-i18n="story.title">A working farm in the heart of Mato Grosso</h2>
+      <div class="prose">
+        <p data-i18n="story.p1">Araujo Farms is the home of Fazenda Nova Campinas, a 1,340-hectare property in the municipality of Tesouro, in Brazil's Mato Grosso state. It is cattle country: rolling pasture, fertile clay soils, and long frontage on the clear-running Rio Garças.</p>
+        <p data-i18n="story.p2">The farm balances production and preservation. Alongside its pasture and cultivated ground, more than a thousand hectares of native Cerrado remain standing — a legally protected reserve that keeps the springs flowing, the soil in place, and the wildlife at home.</p>
+        <p data-i18n="story.p3">Everything here is built for the long term: three-phase power, an artesian well, paved-highway access, and structures ready for a family and a working operation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PEOPLE -->
+<section class="section-sm band-cream2" id="people">
+  <div class="wrap reveal">
+    <p class="eyebrow" data-i18n="people.eyebrow">The People</p>
+    <h2 class="section-title" data-i18n="people.title">The hands behind the land</h2>
+    <p class="lede" data-i18n="people.lede">A farm is only as good as the people who run it. Meet the family and team who steward Araujo Farms day to day.</p>
+    <div class="people-grid">
+      <div class="person">
+        <div class="avatar">A<span class="badge" data-i18n="people.photo">Photo to add</span></div>
+        <div class="body">
+          <h3 data-i18n="person1.name">[Owner name]</h3>
+          <div class="role" data-i18n="person1.role">Founder &amp; Owner</div>
+          <p data-i18n="person1.bio">A short biography goes here — years in ranching, what drew them to Tesouro, and the philosophy that guides the farm. Replace this placeholder with real details.</p>
+        </div>
+      </div>
+      <div class="person">
+        <div class="avatar">N<span class="badge" data-i18n="people.photo">Photo to add</span></div>
+        <div class="body">
+          <h3 data-i18n="person2.name">[Partner / family name]</h3>
+          <div class="role" data-i18n="person2.role">Operations</div>
+          <p data-i18n="person2.bio">Describe this person's role — herd management, agriculture, or the day-to-day running of the property — and the experience they bring. Replace this placeholder.</p>
+        </div>
+      </div>
+      <div class="person">
+        <div class="avatar">C<span class="badge" data-i18n="people.photo">Photo to add</span></div>
+        <div class="body">
+          <h3 data-i18n="person3.name">[Farm manager name]</h3>
+          <div class="role" data-i18n="person3.role">Farm Manager</div>
+          <p data-i18n="person3.bio">The person on the ground — the capataz who knows every fence line and water point. Add their name, years on the land, and what they specialise in.</p>
+        </div>
+      </div>
+    </div>
+    <p class="note" data-i18n="people.note">✎ These profiles are placeholders. Send me the real names, roles, experience, and photos and I'll drop them straight in.</p>
+  </div>
+</section>
+
+<!-- CATTLE -->
+<section class="section band-forest" id="cattle">
+  <div class="wrap split reveal">
+    <div class="split-media media-frame"><img src="/media/photos/pasture-house.jpg" alt="Lush green pasture at the homestead" /></div>
+    <div>
+      <p class="eyebrow" data-i18n="cattle.eyebrow">Raising Cattle</p>
+      <h2 class="section-title" data-i18n="cattle.title">Pasture-raised, the Mato Grosso way</h2>
+      <div class="prose">
+        <p data-i18n="cattle.p1">Cattle are at the centre of life here. The herd grazes across native and cultivated pasture, moving with the seasons and watered year-round by the Rio Garças and an artesian well that never runs dry.</p>
+        <p data-i18n="cattle.p2">Flat, open, fully fenced ground makes for calm, low-stress handling. The warm Cerrado climate and quality forage let animals put on condition on grass — the way ranching has always been done in this corner of Brazil.</p>
+      </div>
+      <div class="feature-grid" style="margin-top:28px">
+        <div class="feature"><span class="ic">🌾</span><h3 data-i18n="cattle.f1.t">Native &amp; sown pasture</h3><p data-i18n="cattle.f1.d">200 ha of established native pasture, with fertile ground ready to form more.</p></div>
+        <div class="feature"><span class="ic">💧</span><h3 data-i18n="cattle.f2.t">Water everywhere</h3><p data-i18n="cattle.f2.d">4 km of river frontage plus a 5,000 L/h artesian well.</p></div>
+        <div class="feature"><span class="ic">🐄</span><h3 data-i18n="cattle.f3.t">Ready to run stock</h3><p data-i18n="cattle.f3.d">Fully fenced perimeter, warehouse with lodging, and working infrastructure.</p></div>
+      </div>
+      <p class="note" data-i18n="cattle.note" style="border-color:var(--gold-soft);color:rgba(246,241,230,.85);background:rgba(185,138,62,.16)">✎ Add your herd details here — breed (e.g. Nelore), head count, and how you run the operation.</p>
+    </div>
+  </div>
+</section>
+
+<!-- LAND -->
+<section class="section" id="land">
+  <div class="wrap reveal">
+    <p class="eyebrow" data-i18n="land.eyebrow">The Land</p>
+    <h2 class="section-title" data-i18n="land.title">Fertile ground, gentle country</h2>
+    <p class="lede" data-i18n="land.lede">Predominantly flat with soft undulations, free of erosion, and rich in clay — the kind of land that rewards good management.</p>
+    <div class="feature-grid" style="margin-top:34px">
+      <div class="feature"><span class="ic">🟫</span><h3 data-i18n="land.f1.t">Rich clay soils</h3><p data-i18n="land.f1.d">Yellow and white clay, no sand, with clay content of 190–315 g/kg — medium-to-heavy soil that holds water and responds well to correction.</p></div>
+      <div class="feature"><span class="ic">🗺️</span><h3 data-i18n="land.f2.t">Flat &amp; mechanizable</h3><p data-i18n="land.f2.d">Gently rolling and 100% mechanizable, with natural grottas and no sign of erosion anywhere on the property.</p></div>
+      <div class="feature"><span class="ic">🌳</span><h3 data-i18n="land.f3.t">Preserved Cerrado</h3><p data-i18n="land.f3.d">Over 1,047 ha of native vegetation kept standing as legal reserve — protecting water, soil and biodiversity.</p></div>
+    </div>
+    <div class="split" style="margin-top:64px; align-items:stretch">
+      <div class="split-media media-frame"><img src="/media/photos/soil.jpg" alt="Fertile clay soil held in hand" /></div>
+      <div class="split-media media-frame"><img src="/media/photos/cornfield.jpg" alt="Young crop rows in cultivated ground" /></div>
+    </div>
+  </div>
+</section>
+
+<!-- RIVER -->
+<section class="section band-forest" id="river">
+  <div class="wrap split reverse reveal">
+    <div class="split-media media-frame"><img src="/media/photos/river-hero.jpg" alt="The Rio Garças running past forested banks" /></div>
+    <div>
+      <p class="eyebrow" data-i18n="river.eyebrow">The Rio Garças</p>
+      <h2 class="section-title" data-i18n="river.title">Four kilometres of living water</h2>
+      <div class="prose">
+        <p data-i18n="river.p1">The farm's back boundary follows the Rio Garças for four kilometres — clear water over rock and sand, framed by preserved gallery forest and quiet beaches.</p>
+        <p data-i18n="river.p2">It is the lifeblood of the property: water for the herd, a permanent-preservation corridor for wildlife, and a place to fish, cool off, and take a boat out at the end of a working day.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INFRASTRUCTURE -->
+<section class="section-sm band-cream2" id="infra">
+  <div class="wrap reveal">
+    <p class="eyebrow" data-i18n="infra.eyebrow">Infrastructure</p>
+    <h2 class="section-title" data-i18n="infra.title">Built to live and work on</h2>
+    <div class="feature-grid">
+      <div class="feature"><h3 data-i18n="infra.f1.t">🏡 Homestead &amp; houses</h3><p data-i18n="infra.f1.d">A 110 m² main house, an 80 m² auxiliary house, and a 40 m² external suite, set among shade and fruit trees.</p></div>
+      <div class="feature"><h3 data-i18n="infra.f2.t">🏗️ Warehouse &amp; storage</h3><p data-i18n="infra.f2.d">A 180 m² warehouse (5 m ceiling) with on-site lodging, plus a 25 m² store — room for machinery and feed.</p></div>
+      <div class="feature"><h3 data-i18n="infra.f3.t">⚡ Power &amp; water</h3><p data-i18n="infra.f3.d">Three-phase electricity, a 5,000 L/h artesian well, and internet connectivity.</p></div>
+      <div class="feature"><h3 data-i18n="infra.f4.t">🚜 Paved access</h3><p data-i18n="infra.f4.d">3.5 km of frontage directly on the paved MT-110 highway — no dirt roads to reach the gate.</p></div>
+      <div class="feature"><h3 data-i18n="infra.f5.t">📑 Fully documented</h3><p data-i18n="infra.f5.d">Registered CAR, georeferenced title, and valid environmental licences on record.</p></div>
+      <div class="feature"><h3 data-i18n="infra.f6.t">🔒 Secured perimeter</h3><p data-i18n="infra.f6.d">The entire property is fenced, with a mix of pasture, cropland and preserved reserve.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="section" id="gallery">
+  <div class="wrap reveal">
+    <p class="eyebrow" data-i18n="gallery.eyebrow">Gallery</p>
+    <h2 class="section-title" data-i18n="gallery.title">Around the farm</h2>
+  </div>
+  <div class="wrap" style="margin-top:12px">
+    <div class="gallery">
+      <figure class="g-wide g-tall"><img src="/media/photos/homestead-veranda.jpg" alt="Main house veranda" /><figcaption data-i18n="cap.veranda">The main house &amp; veranda</figcaption></figure>
+      <figure><img src="/media/photos/galpao.jpg" alt="Warehouse and green lawn" /><figcaption data-i18n="cap.galpao">The warehouse (galpão)</figcaption></figure>
+      <figure><img src="/media/photos/well.jpg" alt="Artesian well" /><figcaption data-i18n="cap.well">Artesian well</figcaption></figure>
+      <figure><img src="/media/photos/river-tree.jpg" alt="River under overhanging tree" /><figcaption data-i18n="cap.rivertree">Rio Garças shallows</figcaption></figure>
+      <figure><img src="/media/photos/ranch-life.jpg" alt="Homestead at golden hour" /><figcaption data-i18n="cap.ranch">Golden hour at the sede</figcaption></figure>
+      <figure class="g-wide"><img src="/media/photos/homestead-mango.jpg" alt="Homestead among mango trees" /><figcaption data-i18n="cap.mango">Shade of the old mango trees</figcaption></figure>
+      <figure><img src="/media/photos/casa-auxiliar.jpg" alt="Auxiliary house" /><figcaption data-i18n="cap.aux">The auxiliary house</figcaption></figure>
+      <figure><img src="/media/photos/river-cliff.jpg" alt="River and rocky cliff" /><figcaption data-i18n="cap.cliff">Rock banks on the Garças</figcaption></figure>
+      <figure><img src="/media/photos/galpao-open.jpg" alt="Open warehouse" /><figcaption data-i18n="cap.storage">Machinery &amp; storage</figcaption></figure>
+      <figure class="g-wide"><img src="/media/photos/access-road.jpg" alt="MT-110 highway frontage" /><figcaption data-i18n="cap.access">Frontage on the MT-110</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEOS -->
+<section class="section band-forest" id="motion">
+  <div class="wrap reveal">
+    <p class="eyebrow" data-i18n="motion.eyebrow">In Motion</p>
+    <h2 class="section-title" data-i18n="motion.title">See the farm come alive</h2>
+    <div class="video-grid" style="margin-top:20px">
+      <div>
+        <video controls preload="none" poster="/media/videos/river-boat.jpg"><source src="/media/videos/river-boat.mp4" type="video/mp4" /></video>
+        <p class="video-cap" data-i18n="vid.boat">A boat waits on the Rio Garças</p>
+      </div>
+      <div>
+        <video controls preload="none" poster="/media/videos/homestead.jpg"><source src="/media/videos/homestead.mp4" type="video/mp4" /></video>
+        <p class="video-cap" data-i18n="vid.home">Morning at the homestead</p>
+      </div>
+      <div>
+        <video controls preload="none" poster="/media/videos/river-fishing.jpg"><source src="/media/videos/river-fishing.mp4" type="video/mp4" /></video>
+        <p class="video-cap" data-i18n="vid.fish">Fishing off the rocks</p>
+      </div>
+      <div>
+        <video controls preload="none" poster="/media/videos/access-road.jpg"><source src="/media/videos/access-road.mp4" type="video/mp4" /></video>
+        <p class="video-cap" data-i18n="vid.road">The MT-110 at the farm's edge</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section class="section" id="location">
+  <div class="wrap reveal">
+    <p class="eyebrow" data-i18n="location.eyebrow">Location</p>
+    <h2 class="section-title" data-i18n="location.title">Where to find us</h2>
+    <div class="loc-grid" style="margin-top:20px">
+      <div>
+        <div class="prose">
+          <p data-i18n="location.p1">Fazenda Nova Campinas sits in the municipality of Tesouro, in south-eastern Mato Grosso, right on the paved MT-110 highway — well connected yet genuinely rural.</p>
+        </div>
+        <ul class="distance-list">
+          <li><span class="place" data-i18n="loc.d1">Tesouro / MT</span><span class="dist">5 km</span></li>
+          <li><span class="place" data-i18n="loc.d2">Guiratinga</span><span class="dist">35 km</span></li>
+          <li><span class="place" data-i18n="loc.d3">Rondonópolis</span><span class="dist">145 km</span></li>
+          <li><span class="place" data-i18n="loc.d4">MT-110 highway frontage</span><span class="dist">3.5 km</span></li>
+        </ul>
+      </div>
+      <div>
+        <div class="map-frame">
+          <iframe title="Map — Fazenda Nova Campinas, Tesouro MT" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.openstreetmap.org/export/embed.html?bbox=-53.80%2C-16.28%2C-53.40%2C-15.99&amp;layer=mapnik&amp;marker=-16.1378%2C-53.6005"></iframe>
+        </div>
+        <p style="margin:12px 0 0;font-size:.82rem">
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=-16.137797,-53.600506" target="_blank" rel="noopener" style="color:var(--gold);font-weight:600;text-decoration:none" data-i18n="loc.maplink">↗ Open in Google Maps (16°08′16″S · 53°36′02″W)</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT / FOOTER -->
+<footer class="site" id="contact">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="fcol">
+        <h3>Araujo Farms</h3>
+        <p data-i18n="foot.tag">Fazenda Nova Campinas — cattle, land and preserved Cerrado on the Rio Garças, Tesouro, Mato Grosso, Brazil.</p>
+      </div>
+      <div class="fcol">
+        <h4 data-i18n="foot.contacth">Contact</h4>
+        <ul class="foot-contact">
+          <li><a href="mailto:hello@araujofarms.com" data-i18n="foot.email">hello@araujofarms.com</a></li>
+          <li><a href="#" data-i18n="foot.phone">+55 (00) 00000-0000</a></li>
+          <li data-i18n="foot.addr">Tesouro · Mato Grosso · Brazil</li>
+        </ul>
+        <p class="note" style="margin-top:14px;color:rgba(246,241,230,.7);border-color:var(--gold-soft);background:rgba(185,138,62,.16)" data-i18n="foot.note">✎ Add your real email &amp; phone.</p>
+      </div>
+      <div class="fcol">
+        <h4 data-i18n="foot.exploreh">Explore</h4>
+        <ul class="foot-contact">
+          <li><a href="#story" data-i18n="nav.story">Our Story</a></li>
+          <li><a href="#cattle" data-i18n="nav.cattle">Cattle</a></li>
+          <li><a href="#land" data-i18n="nav.land">The Land</a></li>
+          <li><a href="#river" data-i18n="nav.river">The River</a></li>
+          <li><a href="#location" data-i18n="nav.location">Location</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year"></span> Araujo Farms · Fazenda Nova Campinas</span>
+      <span data-i18n="foot.coords">16°08′16″S · 53°36′02″W</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const I18N = {
+    en: {
+      "brand.sub": "Fazenda Nova Campinas",
+      "nav.story": "Our Story", "nav.cattle": "Cattle", "nav.land": "The Land",
+      "nav.river": "The River", "nav.location": "Location", "nav.contact": "Contact",
+      "hero.loc": "Tesouro · Mato Grosso · Brazil",
+      "hero.title": "Land, cattle &amp; <em>Cerrado</em>,<br />stewarded with care.",
+      "hero.sub": "1,340 hectares along the Rio Garças — productive pasture, fertile soils, and over a thousand hectares of preserved native bush.",
+      "hero.cta1": "Discover the farm", "hero.cta2": "Get in touch",
+      "stat.ha": "hectares total", "stat.preserved": "ha preserved Cerrado", "stat.river": "Rio Garças frontage", "stat.mech": "mechanizable land",
+      "story.eyebrow": "Our Story", "story.title": "A working farm in the heart of Mato Grosso",
+      "story.p1": "Araujo Farms is the home of Fazenda Nova Campinas, a 1,340-hectare property in the municipality of Tesouro, in Brazil's Mato Grosso state. It is cattle country: rolling pasture, fertile clay soils, and long frontage on the clear-running Rio Garças.",
+      "story.p2": "The farm balances production and preservation. Alongside its pasture and cultivated ground, more than a thousand hectares of native Cerrado remain standing — a legally protected reserve that keeps the springs flowing, the soil in place, and the wildlife at home.",
+      "story.p3": "Everything here is built for the long term: three-phase power, an artesian well, paved-highway access, and structures ready for a family and a working operation.",
+      "people.eyebrow": "The People", "people.title": "The hands behind the land",
+      "people.lede": "A farm is only as good as the people who run it. Meet the family and team who steward Araujo Farms day to day.",
+      "people.photo": "Photo to add",
+      "person1.name": "[Owner name]", "person1.role": "Founder & Owner",
+      "person1.bio": "A short biography goes here — years in ranching, what drew them to Tesouro, and the philosophy that guides the farm. Replace this placeholder with real details.",
+      "person2.name": "[Partner / family name]", "person2.role": "Operations",
+      "person2.bio": "Describe this person's role — herd management, agriculture, or the day-to-day running of the property — and the experience they bring. Replace this placeholder.",
+      "person3.name": "[Farm manager name]", "person3.role": "Farm Manager",
+      "person3.bio": "The person on the ground — the capataz who knows every fence line and water point. Add their name, years on the land, and what they specialise in.",
+      "people.note": "✎ These profiles are placeholders. Send me the real names, roles, experience, and photos and I'll drop them straight in.",
+      "cattle.eyebrow": "Raising Cattle", "cattle.title": "Pasture-raised, the Mato Grosso way",
+      "cattle.p1": "Cattle are at the centre of life here. The herd grazes across native and cultivated pasture, moving with the seasons and watered year-round by the Rio Garças and an artesian well that never runs dry.",
+      "cattle.p2": "Flat, open, fully fenced ground makes for calm, low-stress handling. The warm Cerrado climate and quality forage let animals put on condition on grass — the way ranching has always been done in this corner of Brazil.",
+      "cattle.f1.t": "Native & sown pasture", "cattle.f1.d": "200 ha of established native pasture, with fertile ground ready to form more.",
+      "cattle.f2.t": "Water everywhere", "cattle.f2.d": "4 km of river frontage plus a 5,000 L/h artesian well.",
+      "cattle.f3.t": "Ready to run stock", "cattle.f3.d": "Fully fenced perimeter, warehouse with lodging, and working infrastructure.",
+      "cattle.note": "✎ Add your herd details here — breed (e.g. Nelore), head count, and how you run the operation.",
+      "land.eyebrow": "The Land", "land.title": "Fertile ground, gentle country",
+      "land.lede": "Predominantly flat with soft undulations, free of erosion, and rich in clay — the kind of land that rewards good management.",
+      "land.f1.t": "Rich clay soils", "land.f1.d": "Yellow and white clay, no sand, with clay content of 190–315 g/kg — medium-to-heavy soil that holds water and responds well to correction.",
+      "land.f2.t": "Flat & mechanizable", "land.f2.d": "Gently rolling and 100% mechanizable, with natural grottas and no sign of erosion anywhere on the property.",
+      "land.f3.t": "Preserved Cerrado", "land.f3.d": "Over 1,047 ha of native vegetation kept standing as legal reserve — protecting water, soil and biodiversity.",
+      "river.eyebrow": "The Rio Garças", "river.title": "Four kilometres of living water",
+      "river.p1": "The farm's back boundary follows the Rio Garças for four kilometres — clear water over rock and sand, framed by preserved gallery forest and quiet beaches.",
+      "river.p2": "It is the lifeblood of the property: water for the herd, a permanent-preservation corridor for wildlife, and a place to fish, cool off, and take a boat out at the end of a working day.",
+      "infra.eyebrow": "Infrastructure", "infra.title": "Built to live and work on",
+      "infra.f1.t": "🏡 Homestead & houses", "infra.f1.d": "A 110 m² main house, an 80 m² auxiliary house, and a 40 m² external suite, set among shade and fruit trees.",
+      "infra.f2.t": "🏗️ Warehouse & storage", "infra.f2.d": "A 180 m² warehouse (5 m ceiling) with on-site lodging, plus a 25 m² store — room for machinery and feed.",
+      "infra.f3.t": "⚡ Power & water", "infra.f3.d": "Three-phase electricity, a 5,000 L/h artesian well, and internet connectivity.",
+      "infra.f4.t": "🚜 Paved access", "infra.f4.d": "3.5 km of frontage directly on the paved MT-110 highway — no dirt roads to reach the gate.",
+      "infra.f5.t": "📑 Fully documented", "infra.f5.d": "Registered CAR, georeferenced title, and valid environmental licences on record.",
+      "infra.f6.t": "🔒 Secured perimeter", "infra.f6.d": "The entire property is fenced, with a mix of pasture, cropland and preserved reserve.",
+      "gallery.eyebrow": "Gallery", "gallery.title": "Around the farm",
+      "cap.veranda": "The main house & veranda", "cap.galpao": "The warehouse (galpão)", "cap.well": "Artesian well",
+      "cap.rivertree": "Rio Garças shallows", "cap.ranch": "Golden hour at the sede", "cap.mango": "Shade of the old mango trees",
+      "cap.aux": "The auxiliary house", "cap.cliff": "Rock banks on the Garças", "cap.storage": "Machinery & storage", "cap.access": "Frontage on the MT-110",
+      "motion.eyebrow": "In Motion", "motion.title": "See the farm come alive",
+      "vid.boat": "A boat waits on the Rio Garças", "vid.home": "Morning at the homestead", "vid.fish": "Fishing off the rocks", "vid.road": "The MT-110 at the farm's edge",
+      "location.eyebrow": "Location", "location.title": "Where to find us",
+      "location.p1": "Fazenda Nova Campinas sits in the municipality of Tesouro, in south-eastern Mato Grosso, right on the paved MT-110 highway — well connected yet genuinely rural.",
+      "loc.d1": "Tesouro / MT", "loc.d2": "Guiratinga", "loc.d3": "Rondonópolis", "loc.d4": "MT-110 highway frontage",
+      "loc.maplink": "↗ Open in Google Maps (16°08′16″S · 53°36′02″W)",
+      "foot.tag": "Fazenda Nova Campinas — cattle, land and preserved Cerrado on the Rio Garças, Tesouro, Mato Grosso, Brazil.",
+      "foot.contacth": "Contact", "foot.email": "hello@araujofarms.com", "foot.phone": "+55 (00) 00000-0000", "foot.addr": "Tesouro · Mato Grosso · Brazil",
+      "foot.note": "✎ Add your real email & phone.",
+      "foot.exploreh": "Explore", "foot.coords": "16°08′16″S · 53°36′02″W"
+    },
+    pt: {
+      "brand.sub": "Fazenda Nova Campinas",
+      "nav.story": "Nossa História", "nav.cattle": "Gado", "nav.land": "A Terra",
+      "nav.river": "O Rio", "nav.location": "Localização", "nav.contact": "Contato",
+      "hero.loc": "Tesouro · Mato Grosso · Brasil",
+      "hero.title": "Terra, gado e <em>Cerrado</em>,<br />cuidados com dedicação.",
+      "hero.sub": "1.340 hectares às margens do Rio Garças — pasto produtivo, solo fértil e mais de mil hectares de mata nativa preservada.",
+      "hero.cta1": "Conheça a fazenda", "hero.cta2": "Fale conosco",
+      "stat.ha": "hectares no total", "stat.preserved": "ha de Cerrado preservado", "stat.river": "de frente para o Rio Garças", "stat.mech": "de área mecanizável",
+      "story.eyebrow": "Nossa História", "story.title": "Uma fazenda produtiva no coração de Mato Grosso",
+      "story.p1": "A Araujo Farms é o lar da Fazenda Nova Campinas, uma propriedade de 1.340 hectares no município de Tesouro, no estado de Mato Grosso. É terra de gado: pasto ondulado, solo argiloso e fértil, e longa frente para as águas limpas do Rio Garças.",
+      "story.p2": "A fazenda equilibra produção e preservação. Além do pasto e da área cultivada, mais de mil hectares de Cerrado nativo permanecem de pé — uma reserva legal protegida que mantém as nascentes vivas, o solo firme e a fauna em casa.",
+      "story.p3": "Tudo aqui é feito para durar: energia trifásica, poço artesiano, acesso pelo asfalto e estrutura pronta para uma família e uma operação de trabalho.",
+      "people.eyebrow": "As Pessoas", "people.title": "As mãos por trás da terra",
+      "people.lede": "Uma fazenda vale o quanto valem as pessoas que a tocam. Conheça a família e a equipe que cuidam da Araujo Farms todos os dias.",
+      "people.photo": "Adicionar foto",
+      "person1.name": "[Nome do proprietário]", "person1.role": "Fundador e Proprietário",
+      "person1.bio": "Aqui vai uma breve biografia — anos de experiência na pecuária, o que trouxe a pessoa até Tesouro e a filosofia que guia a fazenda. Substitua este texto pelos dados reais.",
+      "person2.name": "[Nome do sócio / familiar]", "person2.role": "Operações",
+      "person2.bio": "Descreva o papel desta pessoa — manejo do rebanho, agricultura ou o dia a dia da propriedade — e a experiência que traz. Substitua este texto.",
+      "person3.name": "[Nome do gerente]", "person3.role": "Gerente da Fazenda",
+      "person3.bio": "A pessoa no campo — o capataz que conhece cada cerca e cada aguada. Adicione o nome, os anos na terra e a especialidade.",
+      "people.note": "✎ Estes perfis são temporários. Envie os nomes, funções, experiência e fotos reais que eu coloco no lugar.",
+      "cattle.eyebrow": "Criação de Gado", "cattle.title": "Criado a pasto, no jeito mato-grossense",
+      "cattle.p1": "O gado está no centro da vida aqui. O rebanho pasta em áreas nativas e cultivadas, acompanhando as estações e com água o ano inteiro, do Rio Garças e de um poço artesiano que nunca seca.",
+      "cattle.p2": "Terreno plano, aberto e todo cercado permite um manejo calmo e de baixo estresse. O clima quente do Cerrado e a boa forragem deixam os animais ganharem condição no pasto — como sempre se fez a pecuária neste canto do Brasil.",
+      "cattle.f1.t": "Pasto nativo e formado", "cattle.f1.d": "200 ha de pasto nativo estabelecido, com solo fértil pronto para formar mais.",
+      "cattle.f2.t": "Água por toda parte", "cattle.f2.d": "4 km de frente para o rio e poço artesiano de 5.000 L/h.",
+      "cattle.f3.t": "Pronta para o rebanho", "cattle.f3.d": "Perímetro todo cercado, galpão com alojamento e estrutura de trabalho.",
+      "cattle.note": "✎ Adicione aqui os dados do rebanho — raça (ex.: Nelore), número de cabeças e como funciona a operação.",
+      "land.eyebrow": "A Terra", "land.title": "Solo fértil, relevo suave",
+      "land.lede": "Predominantemente plana, com leves ondulações, sem erosão e rica em argila — a terra que recompensa o bom manejo.",
+      "land.f1.t": "Solo argiloso e rico", "land.f1.d": "Barro amarelo e branco, sem areia, com teor de argila de 190–315 g/kg — solo médio a argiloso, que retém água e responde bem à correção.",
+      "land.f2.t": "Plana e mecanizável", "land.f2.d": "Levemente ondulada e 100% mecanizável, com grotas naturais e sem qualquer sinal de erosão na propriedade.",
+      "land.f3.t": "Cerrado preservado", "land.f3.d": "Mais de 1.047 ha de vegetação nativa mantidos em pé como reserva legal — protegendo água, solo e biodiversidade.",
+      "river.eyebrow": "O Rio Garças", "river.title": "Quatro quilômetros de água viva",
+      "river.p1": "O fundo da fazenda acompanha o Rio Garças por quatro quilômetros — água limpa sobre pedra e areia, emoldurada por mata ciliar preservada e praias tranquilas.",
+      "river.p2": "É a alma da propriedade: água para o rebanho, um corredor de preservação permanente para a fauna e um lugar para pescar, refrescar e sair de barco no fim de um dia de trabalho.",
+      "infra.eyebrow": "Infraestrutura", "infra.title": "Feita para viver e trabalhar",
+      "infra.f1.t": "🏡 Sede e casas", "infra.f1.d": "Casa sede de 110 m², casa auxiliar de 80 m² e suíte externa de 40 m², entre árvores frutíferas e sombra.",
+      "infra.f2.t": "🏗️ Galpão e depósito", "infra.f2.d": "Galpão de 180 m² (pé-direito 5 m) com alojamento, além de depósito de 25 m² — espaço para máquinas e ração.",
+      "infra.f3.t": "⚡ Energia e água", "infra.f3.d": "Energia trifásica, poço artesiano de 5.000 L/h e internet.",
+      "infra.f4.t": "🚜 Acesso asfaltado", "infra.f4.d": "3,5 km de frente direto na rodovia MT-110 asfaltada — sem estrada de chão até a porteira.",
+      "infra.f5.t": "📑 Toda documentada", "infra.f5.d": "CAR registrado, GEO averbado na matrícula e licenças ambientais vigentes.",
+      "infra.f6.t": "🔒 Perímetro cercado", "infra.f6.d": "Propriedade totalmente cercada, com pasto, lavoura e reserva preservada.",
+      "gallery.eyebrow": "Galeria", "gallery.title": "Pela fazenda",
+      "cap.veranda": "A casa sede e a varanda", "cap.galpao": "O galpão", "cap.well": "Poço artesiano",
+      "cap.rivertree": "Águas rasas do Garças", "cap.ranch": "Fim de tarde na sede", "cap.mango": "À sombra das mangueiras antigas",
+      "cap.aux": "A casa auxiliar", "cap.cliff": "Barrancos de pedra no Garças", "cap.storage": "Máquinas e depósito", "cap.access": "Frente para a MT-110",
+      "motion.eyebrow": "Em Movimento", "motion.title": "Veja a fazenda ganhar vida",
+      "vid.boat": "Um barco espera no Rio Garças", "vid.home": "Manhã na sede", "vid.fish": "Pescaria nas pedras", "vid.road": "A MT-110 na divisa da fazenda",
+      "location.eyebrow": "Localização", "location.title": "Onde nos encontrar",
+      "location.p1": "A Fazenda Nova Campinas fica no município de Tesouro, no sudeste de Mato Grosso, direto na rodovia asfaltada MT-110 — bem conectada e, ao mesmo tempo, genuinamente rural.",
+      "loc.d1": "Tesouro / MT", "loc.d2": "Guiratinga", "loc.d3": "Rondonópolis", "loc.d4": "Frente para a MT-110",
+      "loc.maplink": "↗ Abrir no Google Maps (16°08′16″S · 53°36′02″O)",
+      "foot.tag": "Fazenda Nova Campinas — gado, terra e Cerrado preservado às margens do Rio Garças, Tesouro, Mato Grosso, Brasil.",
+      "foot.contacth": "Contato", "foot.email": "contato@araujofarms.com", "foot.phone": "+55 (00) 00000-0000", "foot.addr": "Tesouro · Mato Grosso · Brasil",
+      "foot.note": "✎ Adicione seu e-mail e telefone reais.",
+      "foot.exploreh": "Explorar", "foot.coords": "16°08′16″S · 53°36′02″O"
+    }
+  };
+
+  function setLang(lang) {
+    const dict = I18N[lang] || I18N.en;
+    document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const k = el.getAttribute('data-i18n');
+      if (dict[k] != null) el.textContent = dict[k];
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+      const k = el.getAttribute('data-i18n-html');
+      if (dict[k] != null) el.innerHTML = dict[k];
+    });
+    document.querySelectorAll('.lang button').forEach(b =>
+      b.classList.toggle('active', b.getAttribute('data-lang') === lang)
+    );
+    try { localStorage.setItem('af_lang', lang); } catch (e) {}
+  }
+
+  // init language
+  (function () {
+    let lang = 'en';
+    try { lang = localStorage.getItem('af_lang') || 'en'; } catch (e) {}
+    if (!I18N[lang]) lang = 'en';
+    setLang(lang);
+  })();
+
+  // nav background on scroll
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 40);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // reveal on scroll
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.02, rootMargin: '0px 0px -8% 0px' });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+  }
+
+  // year
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

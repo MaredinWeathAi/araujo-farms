@@ -1,0 +1,16 @@
+{
+  "name": "araujo-farms",
+  "version": "1.0.0",
+  "description": "Araujo Farms — Fazenda Nova Campinas, Tesouro/MT. Bilingual (EN/PT) farm & cattle website.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "playwright-core": "^1.61.1"
+  }
+}
